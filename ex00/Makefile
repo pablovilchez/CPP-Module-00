@@ -1,0 +1,28 @@
+NAME = megaphone
+
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+REMOVE = rm -rf
+
+SRC_FILE = megaphone.cpp
+
+ORANGE = \033[1;38;5;208m
+RESET = \033[0m
+U_LINE = \033[4m
+YELLOW = \033[1;38;5;226m
+
+all: $(NAME)
+
+$(NAME):
+	@$(CC) $(CFLAGS) $(SRC_FILE) -o $(NAME)
+	@echo "\n$(ORANGE)$(U_LINE)$(NAME): Mandatory Compiled$(RESET) \n"
+
+clean:
+	@echo "\n$(ORANGE)$(U_LINE)$(NAME): No object files to delete \n"
+
+fclean: clean
+	@$(REMOVE) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
