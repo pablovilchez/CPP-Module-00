@@ -6,17 +6,19 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/01/03 23:33:37 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/01/28 23:35:41 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = myphonebook
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 REMOVE = rm -rf
 
-SRC_FILE = megaphone.cpp
+SRC_FILE = myphonebook.cpp
+
+HEADERS = -I myphonebook.hpp
 
 ORANGE = \033[1;38;5;208m
 RESET = \033[0m
@@ -26,7 +28,7 @@ YELLOW = \033[1;38;5;226m
 all: $(NAME)
 
 $(NAME):
-	@$(CC) $(CFLAGS) $(SRC_FILE) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC_FILE) $(HEADERS) -o $(NAME)
 	@echo "\n$(ORANGE)$(U_LINE)$(NAME): Mandatory Compiled$(RESET) \n"
 
 clean:
