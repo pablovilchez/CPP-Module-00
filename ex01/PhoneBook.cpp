@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:33:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 22:18:48 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/01 22:38:25 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 PhoneBook::PhoneBook()
 {
-	this->index = 0;
+	_index = 0;
 }
 
 void	PhoneBook::add_contact()
 {
-	contacts[index].set_contact();
-	index++;
-	if (index > 7)
-		index = 0;
+	_contacts[_index].set_contact();
+	_index++;
+	if (_index > 7)
+		_index = 0;
 }
 
 void	PhoneBook::r_align(std::string str)
@@ -45,11 +45,11 @@ void PhoneBook::print_phonebook()
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "         " << i << "|";
-		r_align(contacts[i].get_first_name());
+		r_align(_contacts[i].get_first_name());
 		std::cout << "|";
-		r_align(contacts[i].get_last_name());
+		r_align(_contacts[i].get_last_name());
 		std::cout << "|";
-		r_align(contacts[i].get_nickname());
+		r_align(_contacts[i].get_nickname());
 		std::cout << std::endl << std::endl;
 	}
 
@@ -76,10 +76,10 @@ void PhoneBook::search_contact()
 		std::cout << std::endl << "< Invalid index >" << std::endl;
 		return ;
 	}
-	if (contacts[index].get_first_name().length() == 0)
+	if (_contacts[index].get_first_name().length() == 0)
 	{
 		std::cout << std::endl << "< Empty Contact >" << std::endl;
 		return ;
 	}
-	contacts[index].print_contact();
+	_contacts[index].print_contact();
 }

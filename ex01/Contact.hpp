@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:58:15 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 22:14:29 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/01 22:35:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ class Contact
 		std::string	get_nickname();
 	
 	private:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+		std::string	_darkest_secret;
 };
 
 #endif

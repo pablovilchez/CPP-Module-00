@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 22:42:34 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 21:13:50 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/01 22:37:30 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class PhoneBook
 		void		r_align(std::string str);
 	
 	private:
-		int			index;
-		Contact		contacts[8];
+		int			_index;
+		Contact		_contacts[8];
 };
 
 #endif
