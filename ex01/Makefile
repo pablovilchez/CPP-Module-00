@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/01/28 23:35:41 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/01 18:39:16 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 REMOVE = rm -rf
 
-SRC_FILE = myphonebook.cpp
+SRC_FILE = myphonebook.cpp \
+			Contact.cpp \
+			PhoneBook.cpp
 
-HEADERS = -I myphonebook.hpp
+HEADERS = -I ./
 
 ORANGE = \033[1;38;5;208m
 RESET = \033[0m
