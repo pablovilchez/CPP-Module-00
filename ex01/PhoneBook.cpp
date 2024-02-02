@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:33:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 22:38:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:47:57 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void PhoneBook::print_phonebook()
 		r_align(_contacts[i].get_last_name());
 		std::cout << "|";
 		r_align(_contacts[i].get_nickname());
-		std::cout << std::endl << std::endl;
+		std::cout << std::endl;
 	}
-
+	std::cout << std::endl;
 }
 
 void PhoneBook::search_contact()

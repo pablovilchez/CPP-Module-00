@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:56:58 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/02 09:50:49 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:45:34 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	Contact::set_darkest_secret()
 	do
 	{
 		std::cout << std::endl << "** Darkest secret: ";
-		std::getline(std::cin, _phone_number);
+		std::getline(std::cin, _darkest_secret);
 	} while (!check_string(_darkest_secret));
 }
 
@@ -99,9 +99,9 @@ bool	Contact::check_string(std::string input)
 		std::cout << "< Invalid input. Required field >" << std::endl;
 		return (false);
 	}
-	for (char c : input)
+	for (unsigned long c = 0; c < input.length(); c++)
 	{
-		if (!std::isalpha(c))
+		if (!std::isalpha(input[c]))
 		{
 			std::cout << "< Invalid input. Only alphanumeric allowed >" << std::endl;
 			return (false);
@@ -119,9 +119,9 @@ bool	Contact::check_number(std::string input)
 		std::cout << "< Invalid input. Required field >" << std::endl;
 		return (false);
 	}
-	for (char c : input)
+	for (unsigned long d = 0; d < input.length(); d++)
 	{
-		if (!std::isdigit(c))
+		if (!std::isdigit(input[d]))
 		{
 			std::cout << "< Invalid input. Only numbers allowed >" << std::endl;
 			return (false);
