@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/01 22:23:37 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/02 08:34:56 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 REMOVE = rm -rf
 
-SRC_FILE = 
+SRC_FILE = tests.cpp Account.cpp
 
 HEADERS = -I ./
 

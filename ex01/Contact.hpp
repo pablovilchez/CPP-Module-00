@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:58:15 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 22:35:53 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/02 09:48:57 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Contact
 		std::string	get_first_name();
 		std::string	get_last_name();
 		std::string	get_nickname();
+		bool		check_string(std::string str);
+		bool		check_number(std::string str);
 	
 	private:
 		std::string	_first_name;
