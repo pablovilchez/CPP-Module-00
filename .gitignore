@@ -25,3 +25,4 @@
 # Incluye los archivos de código fuente y cabecera
 !/src/
 !/include/
+!/MODULE-00/
