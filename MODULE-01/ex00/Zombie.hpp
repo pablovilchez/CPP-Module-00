@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 18:58:13 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/02 21:39:20 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:34:28 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class Zombie {
 		std::string getName();
 
 	private:
-		std::string name;
+		std::string _name;
 };
 
-Zombie *newZombie(std::string name);
+Zombie *newZombie(std::string _name);
 
-void randomChump(std::string name);
+void randomChump(std::string _name);
 
 #endif

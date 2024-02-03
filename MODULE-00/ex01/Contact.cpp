@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:56:58 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/02 09:50:49 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/03 01:54:46 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	Contact::set_darkest_secret()
 	do
 	{
 		std::cout << std::endl << "** Darkest secret: ";
-		std::getline(std::cin, _phone_number);
+		std::getline(std::cin, _darkest_secret);
 	} while (!check_string(_darkest_secret));
 }
 

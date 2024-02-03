@@ -6,17 +6,17 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/03 13:24:52 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/03 16:53:27 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ptrandref
+NAME = streetfight
 
 CC = c++ -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 REMOVE = rm -rf
 
-SRC_FILE = main.cpp
+SRC_FILE = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 HEADERS = -I ./
 

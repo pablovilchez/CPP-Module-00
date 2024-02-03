@@ -6,13 +6,13 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/03 13:24:52 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/03 17:01:58 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ptrandref
+NAME = filereplacing
 
-CC = c++ -fsanitize=address
+CC = c++ #-fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 REMOVE = rm -rf
 
