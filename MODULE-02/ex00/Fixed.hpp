@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:46:36 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/04 22:59:59 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:07:48 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ class Fixed
 {
 	public:
 		Fixed();
-		Fixed(const Fixed& f);
+		Fixed(const Fixed& fix);
 		~Fixed();
-		Fixed &operator=(const Fixed &f);
+		Fixed &operator=(const Fixed &fix);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 		
 	private:
-		int _fix_point;
+		int _raw_bits;
 		static const int _fract = 8;
 };
 
