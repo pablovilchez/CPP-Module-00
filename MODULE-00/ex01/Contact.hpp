@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:58:15 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/02 09:48:57 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:08:29 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@
 class Contact
 {
 	public:
-		void		set_contact();
-		void		print_contact();
-		void		set_first_name();
-		void		set_last_name();
-		void		set_nickname();
-		void		set_phone_number();
-		void		set_darkest_secret();
+		Contact();
+		~Contact();
+		void set_contact();
+		void print_contact();
+		void set_first_name();
+		void set_last_name();
+		void set_nickname();
+		void set_phone_number();
+		void set_darkest_secret();
 		std::string	get_first_name();
 		std::string	get_last_name();
 		std::string	get_nickname();
-		bool		check_string(std::string str);
-		bool		check_number(std::string str);
+		bool check_string(std::string str);
+		bool check_number(std::string str);
 	
 	private:
 		std::string	_first_name;

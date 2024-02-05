@@ -6,13 +6,11 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 23:05:34 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 21:30:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:05:09 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-
 
 int main()
 {
@@ -39,7 +37,7 @@ int main()
 			std::cout << std::endl;
 			break ;
 		}
-		if (std::cin.eof())
+		else if (std::cin.eof())
 		{
 			std::cout << std::endl;
 			std::cout << "Bye bye" << std::endl << std::endl;

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:33:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/01 22:38:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:09:26 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 PhoneBook::PhoneBook()
 {
 	_index = 0;
+}
+
+PhoneBook::~PhoneBook()
+{
+
 }
 
 void	PhoneBook::add_contact()
@@ -41,7 +46,7 @@ void	PhoneBook::r_align(std::string str)
 void PhoneBook::print_phonebook()
 {
 	std::cout << std::endl << "-- Contact list --" << std::endl << std::endl;
-	std::cout << "Index     |First name|Last name |Nickname  " << std::endl << std::endl;
+	std::cout << "     Index|First name| Last name|  Nickname" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "         " << i << "|";
@@ -50,7 +55,7 @@ void PhoneBook::print_phonebook()
 		r_align(_contacts[i].get_last_name());
 		std::cout << "|";
 		r_align(_contacts[i].get_nickname());
-		std::cout << std::endl << std::endl;
+		std::cout << std::endl;
 	}
 
 }

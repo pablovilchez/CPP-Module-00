@@ -6,11 +6,21 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:56:58 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/03 01:54:46 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:10:47 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact()
+{
+	
+}
+
+Contact::~Contact()
+{
+	
+}
 
 std::string	Contact::get_first_name() {return (_first_name);}
 
@@ -99,9 +109,10 @@ bool	Contact::check_string(std::string input)
 		std::cout << "< Invalid input. Required field >" << std::endl;
 		return (false);
 	}
-	for (char c : input)
+	unsigned int len = input.length();
+	for (unsigned int i = 0; i < len; i++)
 	{
-		if (!std::isalpha(c))
+		if (!isalpha(input[i]))
 		{
 			std::cout << "< Invalid input. Only alphanumeric allowed >" << std::endl;
 			return (false);
@@ -119,9 +130,10 @@ bool	Contact::check_number(std::string input)
 		std::cout << "< Invalid input. Required field >" << std::endl;
 		return (false);
 	}
-	for (char c : input)
+	unsigned int len = input.length();
+	for (unsigned int i = 0; i < len; i++)
 	{
-		if (!std::isdigit(c))
+		if (!isnumber(input[i]))
 		{
 			std::cout << "< Invalid input. Only numbers allowed >" << std::endl;
 			return (false);
