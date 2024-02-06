@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 00:45:46 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/04 17:44:38 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:53:44 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,19 @@ void Harl::complain(std::string level)
 			break;
 		i++;
 	}
-	do
+	switch (i)
 	{
-		switch (i)
-		{
-			case 0:
-				(this->*methods[0])();
-				break;
-			case 1:
-				(this->*methods[1])();
-				break;
-			case 2:
-				(this->*methods[2])();
-				break;
-			case 3:
-				(this->*methods[3])();
-				break;
-			default:
-				std::cout << "Error: complain level not found." << std::endl;
-		}
-		std::cout << std::endl;
-		i++;
-	} while (i < 4);
+		case 0:
+			(this->*methods[0])();
+		case 1:
+			(this->*methods[1])();
+		case 2:
+			(this->*methods[2])();
+		case 3:
+			(this->*methods[3])();
+			break;
+		default:
+			std::cout << "Error: complain level not found." << std::endl;
+	}
+	std::cout << std::endl;
 }

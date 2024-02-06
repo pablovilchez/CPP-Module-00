@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 16:51:35 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/04 00:41:50 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/06 10:16:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main (int argc, char **argv)
 	dst = argv[3];
 	while (getline(read_file, line))
 	{
-		while ((found_pos = line.find(src)) < line.length())
+		while ((found_pos = line.find(src)) < line.length() && !(src == dst))
 		{
 			aux = line.substr(found_pos + src.length());
 			line.erase(found_pos);

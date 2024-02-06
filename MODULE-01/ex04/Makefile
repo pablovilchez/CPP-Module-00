@@ -6,7 +6,7 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/05 18:12:19 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/06 09:03:33 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 
 HEADERS = -I ./
 
-SRC_FILE = main.cpp
+SRC_FILES = main.cpp
 
 SRC := $(SRC_FILES)
 OBJ = $(SRC:%.cpp=$(OBJ_PATH)/%.o)

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 18:57:53 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/03 01:39:41 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/06 09:06:51 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@ int main()
 	std::cout << "      Value of str: " << str << std::endl;
 	std::cout << "Value of stringPTR: " << *stringPTR << std::endl;
 	std::cout << "Value of stringREF: " << stringREF << std::endl;
+
+	stringREF = "CHANGED";
+	std::cout << "      Value of str: " << str << std::endl;
+	
 	return 0;
 }
