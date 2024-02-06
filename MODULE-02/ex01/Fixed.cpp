@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:46:30 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/05 23:10:29 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:33:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
-	this->_raw_bits = 0;
+	this->_fix_num = 0;
 }
 
 Fixed::Fixed(const Fixed& f)
@@ -27,13 +27,13 @@ Fixed::Fixed(const Fixed& f)
 Fixed::Fixed(const int int_num)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_raw_bits = (int_num << Fixed::_c_bits);
+	this->_fix_num = (int_num << Fixed::_c_bits);
 }
 
 Fixed::Fixed(const float float_num)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_raw_bits = roundf(float_num * (1 << Fixed::_c_bits));
+	this->_fix_num = roundf(float_num * (1 << Fixed::_c_bits));
 }
 
 Fixed::~Fixed()
@@ -41,98 +41,32 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
+Fixed &Fixed::operator=(const Fixed &f)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->setRawBits(f.getRawBits());
+	return (*this);
+}
+
 int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (_raw_bits);
+	return (_fix_num);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->_raw_bits = raw;
+	this->_fix_num = raw;
 }
 
 int Fixed::toInt(void) const
 {
-	return (_raw_bits >> _c_bits);
+	return (_fix_num >> _c_bits);
 }
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_raw_bits / (float)(1 << Fixed::_c_bits));
-}
-
-Fixed &Fixed::operator=(const Fixed &fix)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->setRawBits(fix.getRawBits());
-	return (*this);
-}
-
-bool Fixed::operator>(const Fixed &fix) const
-{
-	if (this->_raw_bits > fix.getRawBits())
-		return (true);
-	return (false);
-}
-
-bool Fixed::operator<(const Fixed &fix) const
-{
-	if (this->_raw_bits < fix.getRawBits())
-		return (true);
-	return (false);
-}
-
-bool Fixed::operator>=(const Fixed &fix) const
-{
-	if (this->_raw_bits >= fix.getRawBits())
-		return (true);
-	return (false);
-}
-
-bool Fixed::operator<=(const Fixed &fix) const
-{
-	if (this->_raw_bits <= fix.getRawBits())
-		return (true);
-	return (false);
-}
-
-bool Fixed::operator==(const Fixed &fix) const
-{
-	if (this->_raw_bits == fix.getRawBits())
-		return (true);
-	return (false);
-}
-
-bool Fixed::operator!=(const Fixed &fix) const
-{
-	if (this->_raw_bits != fix.getRawBits())
-		return (true);
-	return (false);
-}
-
-Fixed Fixed::operator+(const Fixed &fix)
-{
-	this->_raw_bits += fix.getRawBits();
-	return (*this);
-}
-
-Fixed Fixed::operator-(const Fixed &fix)
-{
-	this->_raw_bits -= fix.getRawBits();
-	return (*this);
-}
-
-Fixed Fixed::operator*(const Fixed &fix)
-{
-	
-	return (*this);
-}
-
-Fixed Fixed::operator/(const Fixed &fix)
-{
-	
-	return (*this);
+	return ((float)this->_fix_num / (float)(1 << Fixed::_c_bits));
 }
 
 std::ostream &operator<<(std::ostream &str, Fixed const &fix)
