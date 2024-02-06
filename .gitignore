@@ -1,33 +1,12 @@
-# Archivos generados por el sistema operativo
-.DS_Store
+#  ----------------------------
+# | .gitignore for CPP-MODULES |
+#  ----------------------------
 
-# Carpeta de compilación y archivos objeto
-/obj/
-*.o
+# VSCode config folder
+/.vscode/
 
-# Archivos temporales
-*~
+# Extra files or Intra downloads
+**/Downloads
 
-# Dependencias de compilación
-*.d
-
-# Carpeta de archivos de configuración de Visual Studio Code
-.vscode/
-
-# Ignora los archivos usados para pruebas
-/*
-
-# Pero incluye específicamente el Makefile
-!.gitignore
-!Makefile
-!README.md
-
-# Incluye los archivos de código fuente y cabecera
-!/src/
-!/include/
-!/MODULE-00/
-!/MODULE-01/
-!/MODULE-02/
-!/MODULE-03/
-!/MODULE-04/
-!/MODULE-05/
+# MacOS folders meta data
+**/.DS_STORE
