@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/12 21:07:34 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/12 21:13:35 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/12 21:14:32 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int main()
-{
-	ClapTrap clap1("Paco");
-	ClapTrap clap2("Pepe");
+# include <iostream>
+# include "ClapTrap.hpp"
 
-	clap1.attack("Pepe");
-	clap1.takeDamage(5);
-	clap1.beRepaired(6);
-	clap2.attack("Paco");
-	clap2.takeDamage(7);
-	clap2.beRepaired(8);
-	return 0;
-}
+
+
+
+
+
+#endif

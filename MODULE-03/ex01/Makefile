@@ -6,11 +6,11 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/12 18:25:45 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/12 21:03:23 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = scavtrap
 
 CC = c++ #-fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 
 HEADERS = -I ./
 
-SRC_FILES = main.cpp ClapTrap.cpp
+SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 SRC := $(SRC_FILES)
 OBJ = $(SRC:%.cpp=$(OBJ_PATH)/%.o)

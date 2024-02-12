@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/12 21:07:34 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/12 18:53:38 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/12 20:31:48 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAV_TRAP_HPP
+# define SCAV_TRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class ScavTrap: public ClapTrap
 {
-	ClapTrap clap1("Paco");
-	ClapTrap clap2("Pepe");
+	public:
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& other);
+		~ScavTrap();
+		ScavTrap& operator=(ScavTrap& other);
+		
+		void attack(const std::string& target);
+		void guardGate();
+	
+	private:
 
-	clap1.attack("Pepe");
-	clap1.takeDamage(5);
-	clap1.beRepaired(6);
-	clap2.attack("Paco");
-	clap2.takeDamage(7);
-	clap2.beRepaired(8);
-	return 0;
-}
+};
+
+#endif
