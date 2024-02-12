@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:53:33 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/07 20:27:00 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:00:16 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,13 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed area_1;
 	Fixed area_2;
 	Fixed area_3;
-	const Fixed margin = Fixed(0.000001f);
 
 	total_area = t_area(a, b, c);
 	area_1 = t_area(a, b, point);
 	area_2 = t_area(a, c, point);
 	area_3 = t_area(b, c, point);
 
-	std::cout << "Total area: " << (float)total_area.toFloat() << std::endl;
-	std::cout << "Area 1 + Area 2 + Area 3: " << area_1.toFloat() + area_2.toFloat() + area_3.toFloat() << std::endl;
-
-	if (abs_val(total_area - (area_1 + area_2 + area_3)) < margin)
+	if (abs_val(total_area ) == abs_val(area_1 + area_2 + area_3))
 		return (true);
 	return (false);
 }
