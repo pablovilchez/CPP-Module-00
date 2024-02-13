@@ -6,21 +6,25 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:08:50 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/12 20:31:37 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/13 22:09:47 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAP_TRAP_HPP
-# define CLAP_TRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
+#include "ClapTrap.hpp"
 
 class ClapTrap
 {
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);
+
 		~ClapTrap();
+		
 		ClapTrap& operator=(ClapTrap& other);
 		
 		void attack(const std::string& target);

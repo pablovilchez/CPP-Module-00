@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 18:53:38 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/13 22:09:38 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/12 21:07:50 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-# include <iostream>
-# include "ClapTrap.hpp"
-
-class ScavTrap: public ClapTrap
+int main()
 {
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& other);
-		
-		~ScavTrap();
-		
-		ScavTrap& operator=(ScavTrap& other);
-		
-		void attack(const std::string& target);
-		void guardGate();
+	ScavTrap scav1("Paco");
+	ScavTrap scav2("Pepe");
+
+	scav1.attack("Pepe");
+	scav1.guardGate();
+	scav2.attack("Paco");
 	
-	private:
-
-};
-
-#endif
+	return 0;
+}
