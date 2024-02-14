@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:46:39 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/04 23:07:31 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:08:07 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int main(void)
 	Fixed c;
 
 	c = b;
+	
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
+	
 	return 0;
 }

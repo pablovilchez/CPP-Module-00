@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:46:36 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/06 21:03:41 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:19:24 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ class Fixed
 		int toInt(void) const;
 		float toFloat(void) const;
 		
-		Fixed &operator=(const Fixed &f);
+		Fixed& operator=(const Fixed& f);
 
 	private:
-		int _fix_num;
-		static const int _c_bits = 8;
+		int _raw_bits;
+		static const int _fract = 8;
 };
 
-std::ostream &operator<<(std::ostream &str, Fixed const &fix);
+std::ostream &operator<<(std::ostream &str, const Fixed& fix);
 
 #endif
