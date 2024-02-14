@@ -6,36 +6,28 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:37:03 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/13 18:57:06 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:38:14 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _name("default"), _hit_points(10), _energy_points(10),
+		_attack_damage(0)
 {
-	_name = "default";
-	_hit_points = 10;
-	_energy_points = 10;
-	_attack_damage = 0;
-	std::cout << "ClapTrap default constructor (" << _name << ")" << std::endl;
+	std::cout << "ClapTrap default constructor" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10),
+		_energy_points(10), _attack_damage(0)
 {
-	_name = name;
-	_hit_points = 10;
-	_energy_points = 10;
-	_attack_damage = 0;
 	std::cout << "ClapTrap constructor (" << _name << ")" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other)
+ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name),
+		_hit_points(other._hit_points),	_energy_points(other._energy_points),
+		_attack_damage(other._attack_damage)
 {
-	_name = other._name;
-	_hit_points = other._hit_points;
-	_energy_points = other._energy_points;
-	_attack_damage = other._attack_damage;
 	std::cout << "ClapTrap copy constructor (" << _name << ")" << std::endl;
 }
 

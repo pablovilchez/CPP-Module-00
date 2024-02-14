@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/12 21:07:50 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:57:40 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int main()
 {
-	ScavTrap scav1("Paco");
-	ScavTrap scav2("Pepe");
+	ScavTrap scav("Paco");
+	ClapTrap clap("Pepe");
 
-	scav1.attack("Pepe");
-	scav1.guardGate();
-	scav2.attack("Paco");
+	scav.attack("Pepe");
+	scav.guardGate();
+	clap.attack("Paco");
 	
 	return 0;
 }
