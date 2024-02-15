@@ -5,42 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/15 17:31:28 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/13 23:36:06 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/15 19:47:59 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {
-	ClapTrap clap("Paco");
-	clap.attack("Pepe");
-	clap.takeDamage(10);
-	clap.beRepaired(5);
+	const Animal* meta = new Animal();
+	std::cout << meta->getType() << " " << std::endl;
+	meta->makeSound();
 
 	std::cout << std::endl;
 
-	ScavTrap scav("Pepe");
-	scav.attack("Pepe");
-	scav.guardGate();
+	const Animal* i = new Cat();
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
 
 	std::cout << std::endl;
-	
-	FragTrap frag("Tito");
-	frag.attack("Paco");
-	frag.highFivesGuys();
 
-	std::cout << std::endl;
-	
-	DiamondTrap diamond("Perla");
-	diamond.attack("Paco");
-	diamond.whoAmI();
+	const Animal* j = new Dog();
+	std::cout << j->getType() << " " << std::endl;
+	j->makeSound();
 
-	std::cout << std::endl;
 	
 	return 0;
 }

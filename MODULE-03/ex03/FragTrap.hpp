@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:13:35 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/13 21:52:14 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:40:33 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 	public:
 		FragTrap();
@@ -27,7 +27,7 @@ class FragTrap: public ClapTrap
 
 		FragTrap& operator=(const FragTrap& other);
 
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void highFivesGuys(void);
 
 	private:

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:53:26 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/15 12:00:39 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:36:43 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "ScavTrap default constructor (" << _name << ")" << std::endl;
 	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damage = 20;
+	std::cout << "ScavTrap default constructor (" << _name << ")" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap constructor (" << _name << ")" << std::endl;
 	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damage = 20;
+	std::cout << "ScavTrap constructor (" << _name << ")" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other)
@@ -34,6 +34,7 @@ ScavTrap::ScavTrap(const ScavTrap& other)
 	_hit_points = other._hit_points;
 	_energy_points = other._energy_points;
 	_attack_damage = other._attack_damage;
+	std::cout << "ScavTrap copy constructor (" << _name << ")" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -43,11 +44,11 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(ScavTrap& other)
 {
-	std::cout << "ScavTrap assignation operator" << std::endl;
 	_name = other._name;
 	_hit_points = other._hit_points;
 	_energy_points = other._energy_points;
 	_attack_damage = other._attack_damage;
+	std::cout << "ScavTrap assignation operator" << std::endl;
 	return *this;
 }
 

@@ -6,11 +6,11 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/15 13:37:02 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/15 17:23:46 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fragtrap
+NAME = diamond
 
 CC = c++ #-fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
