@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:12:11 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/13 21:53:30 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:17:50 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "FragTrap default constructor (" << _name << ")" << std::endl;
 	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damage = 20;
+	std::cout << "FragTrap default constructor (" << _name << ")" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap constructor (" << _name << ")" << std::endl;
 	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damage = 20;
+	std::cout << "FragTrap constructor (" << _name << ")" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other)
@@ -34,6 +34,7 @@ FragTrap::FragTrap(const FragTrap& other)
 	_hit_points = other._hit_points;
 	_energy_points = other._energy_points;
 	_attack_damage = other._attack_damage;
+	std::cout << "FragTrap copy constructor (" << _name << ")" << std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -43,11 +44,11 @@ FragTrap::~FragTrap()
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	std::cout << "FragTrap assignation operator" << std::endl;
 	_name = other._name;
 	_hit_points = other._hit_points;
 	_energy_points = other._energy_points;
 	_attack_damage = other._attack_damage;
+	std::cout << "FragTrap assignation operator" << std::endl;
 	return *this;
 }
 

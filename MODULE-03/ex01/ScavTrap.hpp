@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:53:38 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/13 22:09:52 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:01:04 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class ScavTrap: public ClapTrap
 		void guardGate();
 	
 	private:
-
 };
 
 #endif

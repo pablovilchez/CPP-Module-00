@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:37:03 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/14 12:40:36 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:19:03 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ ClapTrap::~ClapTrap()
 
 ClapTrap& ClapTrap::operator=(ClapTrap& other)
 {
-	std::cout << "ClapTrap assignation operator" << std::endl;
 	_name = other._name;
 	_hit_points = other._hit_points;
 	_energy_points = other._energy_points;
 	_attack_damage = other._attack_damage;
+	std::cout << "ClapTrap assignation operator" << std::endl;
 	return *this;
 }
 		

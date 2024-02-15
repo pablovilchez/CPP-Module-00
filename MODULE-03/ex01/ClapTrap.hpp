@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:08:50 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/13 22:09:57 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:04:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
 		
 		ClapTrap& operator=(ClapTrap& other);
 		
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 	

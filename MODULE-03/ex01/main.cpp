@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/14 12:57:40 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:53:43 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main()
 	scav.attack("Pepe");
 	scav.guardGate();
 	clap.attack("Paco");
+
+	
 	
 	return 0;
 }
