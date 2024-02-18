@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:28:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 15:16:51 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/17 22:54:55 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/17 23:13:36 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include <iostream>
-# include <string>
+# include "AMateria.hpp"
 
-class Brain
+class Cure : public AMateria
 {
-	public:
-		Brain();
-		Brain(const Brain& other);
-		
-		~Brain();
-
-		Brain& operator=(const Brain& other);
-
-		void showIdeas();
-		std::string getIdea(int pos) const;
-		void setIdea(int pos, std::string new_idea);
-
-	private:
-		std::string _ideas[100];
-		
+	
+	
 };
 
 #endif

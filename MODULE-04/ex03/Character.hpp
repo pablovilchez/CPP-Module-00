@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:28:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 15:16:51 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/17 22:49:07 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/18 00:34:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
-# include <string>
+# include "ICharacter.hpp"
 
-class Brain
+class Character : public ICharacter
 {
 	public:
-		Brain();
-		Brain(const Brain& other);
+		Character();
+		Character(const Character &other);
+		Character(std::string name);
 		
-		~Brain();
+		~Character();
+		
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 
-		Brain& operator=(const Brain& other);
-
-		void showIdeas();
-		std::string getIdea(int pos) const;
-		void setIdea(int pos, std::string new_idea);
+		void init_inventory();
 
 	private:
-		std::string _ideas[100];
-		
+		std::string _name;
+		AMateria *_inventory[4];
 };
 
 #endif

@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:28:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 15:16:51 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/13 23:39:32 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/17 19:26:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
-# include <string>
 
-class Brain
+class Animal
 {
 	public:
-		Brain();
-		Brain(const Brain& other);
+		Animal();
+		Animal(const Animal& other);
 		
-		~Brain();
+		virtual ~Animal();
 
-		Brain& operator=(const Brain& other);
+		Animal& operator=(const Animal& other);
 
-		void showIdeas();
-		std::string getIdea(int pos) const;
-		void setIdea(int pos, std::string new_idea);
+		std::string getType() const;
 
-	private:
-		std::string _ideas[100];
-		
+		virtual void makeSound() const = 0;
+		virtual void readBrain() const;
+	
+	protected:
+		std::string _type;
 };
 
 #endif

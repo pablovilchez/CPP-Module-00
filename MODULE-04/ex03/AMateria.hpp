@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:28:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 15:16:51 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/17 19:59:22 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/17 23:35:33 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <iostream>
-# include <string>
+# include "ICharacter.hpp"
 
-class Brain
+class AMateria
 {
 	public:
-		Brain();
-		Brain(const Brain& other);
+		AMateria(std::string const &type);
 		
-		~Brain();
+		std::string const &getType() const;
 
-		Brain& operator=(const Brain& other);
-
-		void showIdeas();
-		std::string getIdea(int pos) const;
-		void setIdea(int pos, std::string new_idea);
-
-	private:
-		std::string _ideas[100];
+		virtual AMateria *clone() const = 0;
+		virtual void use(ICharacter &target);
 		
+	protected:
+		std::string _type;
 };
 
 #endif

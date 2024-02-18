@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:28:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 15:16:51 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/17 19:59:12 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/17 23:48:11 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "AMateria.hpp"
 
-# include <iostream>
-# include <string>
-
-class Brain
+AMateria::AMateria(std::string const &type) : _type(type)
+{}
+		
+std::string const &AMateria::getType() const
 {
-	public:
-		Brain();
-		Brain(const Brain& other);
-		
-		~Brain();
+	return _type;
+}
 
-		Brain& operator=(const Brain& other);
-
-		void showIdeas();
-		std::string getIdea(int pos) const;
-		void setIdea(int pos, std::string new_idea);
-
-	private:
-		std::string _ideas[100];
-		
-};
-
-#endif
+void AMateria::use(ICharacter &target)
+{
+	
+}

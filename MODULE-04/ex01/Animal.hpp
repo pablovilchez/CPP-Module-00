@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 23:39:32 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/15 19:32:18 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/17 14:13:11 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ class Animal
 		Animal();
 		Animal(const Animal& other);
 		
-		~Animal();
+		virtual ~Animal();
 
 		Animal& operator=(const Animal& other);
 
 		std::string getType() const;
 
 		virtual void makeSound() const;
+		virtual void readBrain() const;
 	
 	protected:
 		std::string _type;

@@ -5,23 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:08:40 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 00:17:02 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/17 20:06:48 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/17 23:59:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main()
 {
-	ClapTrap clap1("Paco");
-	ClapTrap clap2("Pepe");
-
-	clap1.attack("Pepe");
-	clap1.takeDamage(5);
-	clap1.beRepaired(6);
-	clap2.attack("Paco");
-	clap2.takeDamage(7);
-	clap2.beRepaired(8);
+	IMateriaSource* src = new MateriaSource();
+	
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	
 	return 0;
 }

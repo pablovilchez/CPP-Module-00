@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:28:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 15:16:51 by pvilchez         ###   ########.fr       */
+/*   Created: 2024/02/13 23:38:50 by pvilchez          #+#    #+#             */
+/*   Updated: 2024/02/17 19:26:29 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Animal.hpp"
 
-# include <iostream>
-# include <string>
-
-class Brain
+Animal::Animal()
 {
-	public:
-		Brain();
-		Brain(const Brain& other);
-		
-		~Brain();
+	_type = "Animal";
+}
 
-		Brain& operator=(const Brain& other);
+Animal::Animal(const Animal& other)
+{
+	_type = other._type;
+}
 
-		void showIdeas();
-		std::string getIdea(int pos) const;
-		void setIdea(int pos, std::string new_idea);
+Animal::~Animal()
+{
+	
+}
 
-	private:
-		std::string _ideas[100];
-		
-};
+std::string Animal::getType() const
+{
+	return _type;
+}
 
-#endif
+Animal& Animal::operator=(const Animal& other)
+{
+	_type = other._type;
+	return *this;
+}
+
+void Animal::readBrain() const
+{
+	std::cout << "This animal has not brain." << std::endl;
+}

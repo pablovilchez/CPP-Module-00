@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:37:03 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/15 15:33:17 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/17 00:13:13 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,43 @@ ClapTrap& ClapTrap::operator=(ClapTrap& other)
 		
 void ClapTrap::attack(const std::string& target)
 {
-	std::cout << "ClapTrap " << _name << " attack " << target;
-	std::cout << ", causing " << _attack_damage << " points of damage!" << std::endl;
+	if(_energy_points > 0 && _hit_points > 0)
+	{
+		_energy_points--;
+		std::cout << "ClapTrap " << _name << " attack " << target;
+		std::cout << ", causing " << _attack_damage << " points of damage!" << std::endl;
+	}
+	else
+	{
+		std::cout << "ClapTrap " << _name << " stay still. Doesn't have enough ";
+		std::cout << "hit-points/energy." << std::endl;
+	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << _name << " take " << amount << " points of damage!" << std::endl;
+	std::cout << _name << " take " << amount << " points of damage!" << std::endl;
 	_hit_points -= amount;
 	if (_hit_points < 0)
+	{
 		_hit_points = 0;
+		std::cout << _name << " has no points left. Idle" << std::endl;
+	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTrap " << _name << " be repaired " << amount << " points of damage!" << std::endl;
-	_hit_points += amount;
-	if (_hit_points > 10)
-		_hit_points = 10;
+	if(_energy_points > 0 && _hit_points > 0)
+	{
+		std::cout << _name << " be repaired " << amount << " points of damage!" << std::endl;
+		_energy_points--;
+		_hit_points += amount;
+		if (_hit_points > 10)
+			_hit_points = 10;
+	}
+	else
+	{
+		std::cout << _name << " stay still. Doesn't have enough ";
+		std::cout << "hit_points/energy." << std::endl;
+	}
 }
