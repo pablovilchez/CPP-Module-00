@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:26:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/19 13:55:05 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:45:06 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &other)
 			source[i] = nullptr;
 		}
 	}
+	return *this;
 }
 
 void MateriaSource::learnMateria(AMateria* new_mat)
@@ -61,9 +62,12 @@ void MateriaSource::learnMateria(AMateria* new_mat)
 	
 	for (int i = 0; i < 4; i++)
 	{
-		if (source[i]->getType() == new_mat->getType())
-			dup = true;
-		if (free_space < 0 && !source[i])
+		if (source[i])
+		{
+			if (source[i]->getType() == new_mat->getType())
+				dup = true;
+		}
+		else if (free_space < 0)
 			free_space = i;
 	}
 	if (dup)
@@ -92,4 +96,18 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 		}
 	}
 	std::cout << "* Materia not found *" << std::endl;
+	return nullptr;
+}
+
+void MateriaSource::printBook()
+{
+	std::cout << std::endl << "MATERIA SOURCE:" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (source[i])
+			std::cout << source[i]->getType() << std::endl;
+		else
+			std::cout << "< empty >" << std::endl;
+	}
+	std::cout << std::endl;
 }

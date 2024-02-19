@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 19:59:22 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/19 09:19:38 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:04:24 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
 	public:
 		AMateria();
 		AMateria(std::string const &type);
 		
-		~AMateria();
+		virtual ~AMateria();
 
 		AMateria(const AMateria &other);
 
