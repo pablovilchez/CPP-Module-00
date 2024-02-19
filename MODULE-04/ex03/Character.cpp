@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:48:55 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/18 00:41:46 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:53:44 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ Character::Character(std::string name) : _name(name)
 		
 Character::~Character()
 {
-	
+	for (int i = 0; i < 4; i++)
+		delete _inventory[i];
 }
 		
 std::string const & Character::getName() const

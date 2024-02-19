@@ -6,15 +6,27 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 19:59:12 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 23:48:11 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:27:26 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
+AMateria::AMateria() : _type("Unrecognized")
+{}
+
 AMateria::AMateria(std::string const &type) : _type(type)
 {}
-		
+
+AMateria::~AMateria()
+{}
+
+AMateria::AMateria(const AMateria &other)
+{}
+
+AMateria& AMateria::operator=(const AMateria &other)
+{}
+
 std::string const &AMateria::getType() const
 {
 	return _type;
@@ -22,5 +34,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	
+	std::cout << "* fail trying to use a unrecognized Materia element *" << std::endl;
 }

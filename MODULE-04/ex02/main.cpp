@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 23:36:06 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 19:28:03 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:11:31 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int main()
+/* int main()
 {
 	int size = 10;
 	Animal *animals[size];
@@ -38,9 +38,9 @@ int main()
 		delete animals[i];
 	
 	return 0;
-}
+} */
 
-/*
+
 int main()
 {
 	std::srand(std::time(0));
@@ -63,6 +63,12 @@ int main()
 
 	std::cout << std::endl;
 	
+
+	std::cout << "Ponyo clone ";
+	p_clone->readBrain();
+
+	std::cout << std::endl;
+	
 	Animal* totoro = new Dog();
 	std::cout << "Totoro ";
 	totoro->readBrain();
@@ -74,4 +80,3 @@ int main()
 
 	return 0;
 }
-*/

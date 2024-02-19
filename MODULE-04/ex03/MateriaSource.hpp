@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:26:12 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/18 02:09:03 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:32:28 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@
 class MateriaSource : public IMateriaSource
 {
 	public:
-		void learnMateria(AMateria*);
+		MateriaSource();
+		MateriaSource(const MateriaSource &other);
+
+		~MateriaSource();
+
+		MateriaSource &operator=(const MateriaSource &other);
+		
+		void learnMateria(AMateria* new_mat);
 		AMateria* createMateria(std::string const & type);
 	
 	private:

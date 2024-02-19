@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:53:43 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/19 00:23:32 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/19 09:27:12 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Ice : public AMateria
 		
 		~Ice();
 
-		
+		Ice& operator=(const Ice &other);
 
 		AMateria *clone() const;
 		void use(ICharacter &target);
