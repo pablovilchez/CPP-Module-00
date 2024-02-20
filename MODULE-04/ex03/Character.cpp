@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 22:48:55 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/19 21:18:39 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:33:50 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,21 +85,31 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (_inventory[idx])
+	if (idx >= 0 && idx < 4)
 	{
-		toGround(_inventory[idx]);
-		_inventory[idx] = nullptr;
+		if (_inventory[idx])
+		{
+			toGround(_inventory[idx]);
+			_inventory[idx] = nullptr;
+		}
+		else
+			std::cout << "* There is nothing in that pocket *" << std::endl;
 	}
 	else
-		std::cout << "* There is nothing in that pocket *" << std::endl; 
+		std::cout << "* Incorrect index *" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (_inventory[idx])
-		_inventory[idx]->use(target);
+	if (idx >= 0 && idx < 4)
+	{
+		if (_inventory[idx])
+			_inventory[idx]->use(target);
+		else
+			std::cout << "* There is nothing in that pocket *" << std::endl;
+	}
 	else
-		std::cout << "* There is nothing in that pocket *" << std::endl; 
+		std::cout << "* Incorrect index *" << std::endl;
 }
 
 void Character::initInventory()

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 23:26:25 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/20 11:42:35 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:30:53 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &other)
 
 void MateriaSource::learnMateria(AMateria* new_mat)
 {
-	int free_space = -1;
-	
-	for (int i = 0; i < 4; i++)
-	{
-		if (!source[i] && free_space < 0)
-			free_space = i;
-	}
-	if (free_space < 0)
-	{
-		std::cout << "* The book is already full *" << std::endl;
-		delete new_mat;
-	}
-	else
-		source[free_space] = new_mat;
-}
-
-/* void MateriaSource::learnMateria(AMateria* new_mat)
-{
 	bool dup = false;
 	int free_space = -1;
 	
@@ -100,7 +82,7 @@ void MateriaSource::learnMateria(AMateria* new_mat)
 	}
 	else
 		source[free_space] = new_mat;
-} */
+}
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
