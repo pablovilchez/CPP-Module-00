@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:35:17 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 16:32:34 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:44:00 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Dog::Dog()
 {
+	std::cout << "Dog constructor" << std::endl;
 	_type = "Dog";
 	_brain = new Brain();
 	fillBrain(3);
@@ -21,6 +22,7 @@ Dog::Dog()
 
 Dog::Dog(const Dog& other)
 {
+	std::cout << "Dog copy constructor" << std::endl;
 	_type = other._type;
 	_brain = new Brain();
 	for (int i = 0; i < 100; i++)
@@ -29,6 +31,7 @@ Dog::Dog(const Dog& other)
 
 Dog::Dog(const Animal& other) : Animal(other)
 {
+	std::cout << "Dog casted copy constructor" << std::endl;
 	const Dog* other_dog = dynamic_cast<const Dog*>(&other);
 	if(other_dog)
 	{
@@ -43,6 +46,7 @@ Dog::Dog(const Animal& other) : Animal(other)
 
 Dog::~Dog()
 {
+	std::cout << "Dog destructor" << std::endl;
 	delete (_brain);
 }
 

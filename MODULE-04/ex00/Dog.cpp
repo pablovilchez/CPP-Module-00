@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:35:17 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/15 19:49:07 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:44:35 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Dog::Dog()
 {
-	_type = "Dog";
 	std::cout << "Dog constructor" << std::endl;
+	_type = "Dog";
 }
 
 Dog::Dog(const Dog& other)
 {
-	_type = other._type;
 	std::cout << "Dog copy constructor" << std::endl;
+	_type = other._type;
 }
 
 Dog::~Dog()

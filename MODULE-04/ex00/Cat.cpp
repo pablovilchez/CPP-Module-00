@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:31:36 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/15 19:49:19 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:41:07 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Cat::Cat()
 {
-	_type = "Cat";
 	std::cout << "Cat constructor" << std::endl;
+	_type = "Cat";
 }
 
 Cat::Cat(const Cat& other)
 {
-	_type = other._type;
 	std::cout << "Cat copy constructor" << std::endl;
+	_type = other._type;
 }
 
 Cat::~Cat()

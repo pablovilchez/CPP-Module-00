@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:31:36 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/17 16:32:24 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:43:08 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Cat::Cat()
 {
+	std::cout << "Cat constructor" << std::endl;
 	_type = "Cat";
 	_brain = new Brain();
 	fillBrain(3);
@@ -21,6 +22,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat& other)
 {
+	std::cout << "Cat copy constructor" << std::endl;
 	_type = other._type;
 	_brain = new Brain();
 	for (int i = 0; i < 100; i++)
@@ -29,6 +31,7 @@ Cat::Cat(const Cat& other)
 
 Cat::Cat(const Animal& other) : Animal(other)
 {
+	std::cout << "Cat casted copy constructor" << std::endl;
 	const Cat* other_cat = dynamic_cast<const Cat*>(&other);
 	if(other_cat)
 	{
@@ -43,6 +46,7 @@ Cat::Cat(const Animal& other) : Animal(other)
 
 Cat::~Cat()
 {
+	std::cout << "Cat destructor" << std::endl;
 	delete (_brain);
 }
 
