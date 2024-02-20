@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 20:06:48 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/19 21:18:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:47:16 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int main()
 	src->printBook();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	src->printBook();
 	src->learnMateria(new Ice());
+	src->printBook();
 	
 	std::cout << std::endl << "++++  character inventory tests  ++++" << std::endl;
 	ICharacter* me = new Character("me");
@@ -38,6 +38,10 @@ int main()
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	me->seeInventory();
 	
@@ -51,6 +55,11 @@ int main()
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->seeInventory();
+	
 	delete bob;
 	delete me;
 	delete src;
