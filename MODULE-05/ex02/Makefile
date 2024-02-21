@@ -6,11 +6,11 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/21 15:20:05 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/02/21 15:41:48 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = interface
+NAME = forms
 
 CC = c++ -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 
 HEADERS = -I ./
 
-SRC_FILES = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+SRC_FILES = main.cpp Bureaucrat.cpp Form.cpp
 
 SRC := $(SRC_FILES)
 OBJ = $(SRC:%.cpp=$(OBJ_PATH)/%.o)

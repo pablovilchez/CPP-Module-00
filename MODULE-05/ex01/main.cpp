@@ -6,29 +6,37 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:51:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 11:11:12 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:47:49 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main()
 {
-	Bureaucrat a;
-	std::cout << std::endl << "--- Default Const ---" << std::endl << a << std::endl;
+	Bureaucrat bur_a("Pepe", 100);
+	std::cout << std::endl << bur_a << std::endl;
 	
-	Bureaucrat b("Pepe");
-	std::cout << std::endl << "--- 1 argument Const ---" << std::endl << b << std::endl;
-	
-	Bureaucrat c("Paco", 1);
-	std::cout << std::endl << "--- 2 arguments (max) Const ---" << std::endl << c << std::endl;
-	c.upGrade();
+	Bureaucrat bur_b("Paco", 10);
+	std::cout << std::endl << bur_b << std::endl;
 
-	Bureaucrat d("Princeso", 150);
-	std::cout << std::endl << "--- 2 arguments (min) Const ---" << std::endl << d << std::endl;
-	d.downGrade();
+	Form form_a("Poco seguro", 150, 150);
+	std::cout << std::endl << form_a << std::endl;
+	bur_a.signForm(form_a);
+	bur_b.signForm(form_a);
+	std::cout << std::endl;
 
-	Bureaucrat e(d);
-	std::cout << std::endl << "--- Copy Const ---" << std::endl << e << std::endl;
+	Form form_b("Medio seguro", 90, 90);
+	std::cout << std::endl << form_b << std::endl;
+	bur_a.signForm(form_b);
+	bur_b.signForm(form_b);
+	std::cout << std::endl;
+
+	Form form_c("Muy seguro", 1, 1);
+	std::cout << std::endl << form_c << std::endl;
+	bur_a.signForm(form_c);
+	bur_b.signForm(form_c);
+	std::cout << std::endl;
 }

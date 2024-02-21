@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:33:18 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 14:34:31 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:09:22 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,27 @@ void Bureaucrat::downGrade()
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::signForm(Form & form)
+{
+	if (_grade <= form.getSignGrade() && form.getSigned())
+	{
+		std::cout << _name << " couldn't sign " << form.getName();
+		std::cout << " because is already signed." << std::endl;
+	}
+	else
+	{
+		form.beSigned(*this);
+		if (_grade <= form.getSignGrade())
+			std::cout << _name << " signed " << form.getName() << std::endl;
+		else
+		{
+			std::cout << _name << " couldn't sign " << form.getName();
+			std::cout << " because it needs an upper grade." << std::endl;
+			std::cout << "Actual grade: " << _grade << "   Required: " << form.getSignGrade() << std::endl;
+		}
 	}
 }
 

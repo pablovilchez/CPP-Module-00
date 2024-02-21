@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:33:43 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 10:59:35 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:57:59 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-#include <exception>
+# include <exception>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -32,12 +35,13 @@ class Bureaucrat
 		const int &getGrade() const;
 		void upGrade();
 		void downGrade();
+		void signForm(Form &form);
 		
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char * what() const _NOEXCEPT {
-					return "Error: Maximum grade 1.";
+					return "Error: Too high grade.";
 				}
 		};
 		
@@ -45,7 +49,7 @@ class Bureaucrat
 		{
 			public:
 				const char * what() const _NOEXCEPT {
-					return "Error: Minimum grade 150.";
+					return "Error: Too low grade.";
 				}
 		};
 
