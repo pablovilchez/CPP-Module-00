@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:33:18 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 17:34:47 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:54:35 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ Bureaucrat::~Bureaucrat() { }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 {
-	_grade = other._grade;
+	if (&other == nullptr)
+		std::cerr << "Error: Null pointer received." << std::endl;
+	else
+		_grade = other._grade;
 	return *this;
 }
 
@@ -109,6 +112,11 @@ void Bureaucrat::signForm(AForm & form)
 
 void Bureaucrat::executeForm(const AForm & form) const
 {
+	if (&form == nullptr)
+	{
+		std::cerr << "Error: Null pointer received." << std::endl;
+        return;
+	}
 	try
 	{
 		if (_grade > form.getExecGrade())
@@ -124,6 +132,8 @@ void Bureaucrat::executeForm(const AForm & form) const
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &b)
 {
+	if (&out == nullptr || &b == nullptr)
+		return std::cerr << "Error: Null pointer received." << std::endl;
 	return std::cout << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl;
 }
 	
