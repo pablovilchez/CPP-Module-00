@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:33:18 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 16:09:22 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:30:46 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void Bureaucrat::downGrade()
 	}
 }
 
-void Bureaucrat::signForm(Form & form)
+void Bureaucrat::signForm(AForm & form)
 {
 	if (_grade <= form.getSignGrade() && form.getSigned())
 	{
@@ -101,9 +101,24 @@ void Bureaucrat::signForm(Form & form)
 		else
 		{
 			std::cout << _name << " couldn't sign " << form.getName();
-			std::cout << " because it needs an upper grade." << std::endl;
-			std::cout << "Actual grade: " << _grade << "   Required: " << form.getSignGrade() << std::endl;
+			std::cout << " because it needs an upper grade." << "  (Actual grade: ";
+			std::cout << _grade << "   Required: " << form.getSignGrade() << ")" << std::endl;
 		}
+	}
+}
+
+void Bureaucrat::executeForm(const AForm & form)
+{
+	try
+	{
+		if (_grade > form.getExecGrade())
+			GradeTooHighException();
+		form.AForm::execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 }
 

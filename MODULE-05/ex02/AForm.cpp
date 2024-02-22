@@ -1,56 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:14:26 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 16:17:23 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:22:04 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : _name("unknown"), _signed(false), _signGrade(150), _execGrade(150) { }
+AForm::AForm() : _name("unknown"), _signed(false), _signGrade(150), _execGrade(150),
+		_target("undetermined") { }
 
-Form::Form(std::string name) : _name(name), _signed(false), _signGrade(150), _execGrade(150) { }
+AForm::AForm(std::string name) : _name(name), _signed(false), _signGrade(150),
+		_execGrade(150), _target("undetermined") { }
 
-Form::Form(std::string name, int signGrade, int execGrade) : _name(name), _signed(false),
-		_signGrade(validateRange(signGrade)), _execGrade(validateRange(execGrade)) { }
+AForm::AForm(std::string name, int signGrade, int execGrade) : _name(name), _signed(false),
+		_signGrade(validateRange(signGrade)), _execGrade(validateRange(execGrade)),
+		_target("undetermined") { }
 
-Form::Form(const Form &other) : _name(other._name), _signed(other._signed),
-		_signGrade(other._signGrade), _execGrade(other._execGrade) { }
+AForm::AForm(std::string name, std::string target, int signGrade, int execGrade) :
+		_name(name), _signed(false), _signGrade(validateRange(signGrade)),
+		_execGrade(validateRange(execGrade)), _target(target) { }
 
-Form::~Form() { }
+AForm::AForm(const AForm &other) : _name(other._name), _signed(other._signed),
+		_signGrade(other._signGrade), _execGrade(other._execGrade),
+		_target(other._target) { }
 
-Form & Form::operator=(const Form &other)
+AForm::~AForm() { }
+
+AForm & AForm::operator=(const AForm &other)
 {
 	_signed = other._signed;
 	return *this;
 }
 
-const std::string & Form::getName() const
+const std::string & AForm::getName() const
 {
 	return _name;
 }
 
-const bool & Form::getSigned() const
+const bool & AForm::getSigned() const
 {
 	return _signed;
 }
 
-const int & Form::getSignGrade() const
+const int & AForm::getSignGrade() const
 {
 	return _signGrade;
 }
 
-const int & Form::getExecGrade() const
+const int & AForm::getExecGrade() const
 {
 	return _execGrade;
 }
 
-void Form::beSigned(const Bureaucrat &brct)
+const std::string & AForm::getTarget() const
+{
+	return _target;
+}
+
+void AForm::beSigned(const Bureaucrat &brct)
 {
 	try
 	{
@@ -62,10 +75,9 @@ void Form::beSigned(const Bureaucrat &brct)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
 }
 
-int Form::validateRange(int grade)
+int AForm::validateRange(int grade)
 {
 	try
 	{
@@ -82,8 +94,7 @@ int Form::validateRange(int grade)
 	return grade;
 }
 
-
-std::ostream& operator<<(std::ostream &out, const Form &f)
+std::ostream& operator<<(std::ostream &out, const AForm &f)
 {
 	return std::cout << "Form name: " << f.getName() << "  Sign: " << f.getSignGrade() <<
 		"  Execute: " << f.getExecGrade() << "  Signed: " << f.getSigned() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:51:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 15:47:49 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:26:37 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-	Bureaucrat bur_a("Pepe", 100);
+	Bureaucrat bur_a("Pepe");
 	std::cout << std::endl << bur_a << std::endl;
 	
 	Bureaucrat bur_b("Paco", 10);

@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:51:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 11:11:12 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:28:10 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 {
 	Bureaucrat a;
 	std::cout << std::endl << "--- Default Const ---" << std::endl << a << std::endl;
+	a.downGrade();
 	
 	Bureaucrat b("Pepe");
 	std::cout << std::endl << "--- 1 argument Const ---" << std::endl << b << std::endl;

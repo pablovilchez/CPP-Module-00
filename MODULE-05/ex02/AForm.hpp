@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:13:30 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/21 15:38:02 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:20:16 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
-		Form();
-		Form(std::string name);
-		Form(std::string name, int signGrade, int execGrade);
-		Form(const Form &other);
+		AForm();
+		AForm(std::string name);
+		AForm(std::string name, int signGrade, int execGrade);
+		AForm(std::string name, std::string _target, int signGrade, int execGrade);
+		AForm(const AForm &other);
 
-		~Form();
+		~AForm();
 
-		Form &operator=(const Form &other);
+		AForm &operator=(const AForm &other);
 
 		const std::string &getName() const;
 		const bool &getSigned() const;
 		const int &getSignGrade() const;
 		const int &getExecGrade() const;
+		const std::string &getTarget() const;
 
 		void beSigned(const Bureaucrat &brct);
+		virtual void execute(const Bureaucrat &executor) = 0;
 
 		int validateRange(int grade);
 
@@ -57,12 +60,13 @@ class Form
 
 	private:
 		const std::string _name;
+		const std::string _target;
 		bool _signed;
 		const int _signGrade;
 		const int _execGrade;
 	
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &f);
+std::ostream &operator<<(std::ostream &out, const AForm &f);
 
 #endif
