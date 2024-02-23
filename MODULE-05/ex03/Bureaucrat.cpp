@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:33:18 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 19:54:35 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:12:15 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,12 @@ void Bureaucrat::downGrade()
 
 void Bureaucrat::signForm(AForm & form)
 {
-	if (_grade <= form.getSignGrade() && form.getSigned())
+	if (&form == nullptr)
+	{
+		std::cerr << "Error: Null pointer received." << std::endl;
+        return;
+	}
+	else if (_grade <= form.getSignGrade() && form.getSigned())
 	{
 		std::cout << _name << " couldn't sign " << form.getName();
 		std::cout << " because is already signed." << std::endl;
@@ -117,16 +122,21 @@ void Bureaucrat::executeForm(const AForm & form) const
 		std::cerr << "Error: Null pointer received." << std::endl;
         return;
 	}
-	try
+	if (!form.getSigned())
+		std::cout << "The form has not been signed yet" << std::endl;
+	else
 	{
-		if (_grade > form.getExecGrade())
-			throw GradeTooLowException();
-		form.execute(*this);
-		std::cout << getName() << " executed " << form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << " " << getName() << " doesn't have permission." << std::endl;
+		try
+		{
+			if (_grade > form.getExecGrade())
+				throw GradeTooLowException();
+			form.execute(*this);
+			std::cout << getName() << " executed " << form.getName() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << " " << getName() << " doesn't have permission." << std::endl;
+		}
 	}
 }
 

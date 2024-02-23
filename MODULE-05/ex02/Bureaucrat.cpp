@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:33:18 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 17:34:47 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 17:57:25 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,16 +109,21 @@ void Bureaucrat::signForm(AForm & form)
 
 void Bureaucrat::executeForm(const AForm & form) const
 {
-	try
+	if (!form.getSigned())
+		std::cout << "The form has not been signed yet" << std::endl;
+	else
 	{
-		if (_grade > form.getExecGrade())
-			throw GradeTooLowException();
-		form.execute(*this);
-		std::cout << getName() << " executed " << form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << " " << getName() << " doesn't have permission." << std::endl;
+		try
+		{
+			if (_grade > form.getExecGrade())
+				throw GradeTooLowException();
+			form.execute(*this);
+			std::cout << getName() << " executed " << form.getName() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << " " << getName() << " doesn't have permission." << std::endl;
+		}
 	}
 }
 

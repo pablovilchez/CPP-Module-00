@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:57:13 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 14:32:52 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:02:49 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,37 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm &o
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-	try
+	if (!getSigned())
+		std::cout << "The form has not been signed yet" << std::endl;
+	else
 	{
-		if (executor.getGrade() > getExecGrade())
-			throw AForm::GradeTooLowException();
-		std::ofstream file(getTarget() + "_shrubbery", std::ios::trunc);
-		if (file.is_open())
+		try
 		{
-			file << "         &&& &&  & &&                     &&& &&  & &&            \n";
-			file << "      && &\\/&\\|& ()|/ @, &&            && &\\/&\\|& ()|/ @, &&      \n";
-			file << "      &\\/(/&/&||/& /_/)_&/_&           &\\/(/&/&||/& /_/)_&/_&     \n";
-			file << "   &() &\\/&|()|/&\\/ '%' & ()        &() &\\/&|()|/&\\/ '%' & ()     \n";
-			file << "  &_\\_&&_\\ |& |&&/&__%_/_& &&      &_\\_&&_\\ |& |&&/&__%_/_& &&    \n";
-			file << " &&   && & &| &| /& & % ()& /&&   &&   && & &| &| /& & % ()& /&&  \n";
-			file << " ()&_---()&\\&\\|&&-&&--%---()~     ()&_---()&\\&\\|&&-&&--%---()~    \n";
-			file << "     &&     \\|||                      &&     \\|||                 \n";
-			file << "             |||                              |||                 \n";
-			file << "             |||                              |||                 \n";
-			file << "             |||                              |||                 \n";
-			file << "       , -=-~  .-^- _                   , -=-~  .-^- _            \n";
-        	file.close();
+			if (executor.getGrade() > getExecGrade())
+				throw AForm::GradeTooLowException();
+			std::ofstream file(getTarget() + "_shrubbery", std::ios::trunc);
+			if (file.is_open())
+			{
+				file << "         &&& &&  & &&                     &&& &&  & &&\n";
+				file << "      && &\\/&\\|& ()|/ @, &&            && &\\/&\\|& ()|/ @, &&\n";
+				file << "      &\\/(/&/&||/& /_/)_&/_&           &\\/(/&/&||/& /_/)_&/_&\n";
+				file << "   &() &\\/&|()|/&\\/ '%' & ()        &() &\\/&|()|/&\\/ '%' & ()\n";
+				file << "  &_\\_&&_\\ |& |&&/&__%_/_& &&      &_\\_&&_\\ |& |&&/&__%_/_& &&\n";
+				file << " &&   && & &| &| /& & % ()& /&&   &&   && & &| &| /& & % ()& /&&\n";
+				file << " ()&_---()&\\&\\|&&-&&--%---()~     ()&_---()&\\&\\|&&-&&--%---()~\n";
+				file << "     &&     \\|||                      &&     \\|||\n";
+				file << "             |||                              |||\n";
+				file << "             |||                              |||\n";
+				file << "             |||                              |||\n";
+				file << "       , -=-~  .-^- _                   , -=-~  .-^- _\n";
+				file.close();
+			}
+			else
+				std::cerr << "Error opening file." << std::endl;
 		}
-		else
-			std::cerr << "Error opening file." << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 }

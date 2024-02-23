@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:57:31 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 14:32:29 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:01:39 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,21 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm &other)
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	try
+	if (!getSigned())
+		std::cout << "The form has not been signed yet" << std::endl;
+	else
 	{
-		if (executor.getGrade() > getExecGrade())
-			throw AForm::GradeTooLowException();
-		std::cout << "<whirr, whirr, whirr!!...>" << std::endl;
-		std::cout << getTarget();
-		std::cout << " has been robotomized successfully 50% of the time." << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl << "Robotomy failed." << std::endl;
+		try
+		{
+			if (executor.getGrade() > getExecGrade())
+				throw AForm::GradeTooLowException();
+			std::cout << "<whirr, whirr, whirr!!...>" << std::endl;
+			std::cout << getTarget();
+			std::cout << " has been robotomized successfully 50% of the time." << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl << "Robotomy failed." << std::endl;
+		}
 	}
 }

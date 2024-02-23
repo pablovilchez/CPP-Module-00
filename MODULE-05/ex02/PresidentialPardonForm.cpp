@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:53:10 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 14:33:06 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:01:09 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,20 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
-	try
+	if (!getSigned())
+		std::cout << "The form has not been signed yet" << std::endl;
+	else
 	{
-		if (executor.getGrade() > getExecGrade())
-			throw AForm::GradeTooLowException();
-		std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.";
-		std::cout << std::endl;
+		try
+		{
+			if (executor.getGrade() > getExecGrade())
+				throw AForm::GradeTooLowException();
+			std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.";
+			std::cout << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}	
 }

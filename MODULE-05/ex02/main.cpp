@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:51:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 17:30:48 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:09:10 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int main()
 	AForm *for_a = new RobotomyRequestForm("Manolito");
 	AForm *for_b = new PresidentialPardonForm("Pepito");
 	AForm *for_c = new ShrubberyCreationForm("garden");
+
+	bur_a.signForm(*for_a);
+	bur_a.signForm(*for_b);
+	for_c->beSigned(bur_a);
 	
 	std::cout << std::endl << "Execute Robotomy tests:" << std::endl;
 	for_a->execute(bur_c);  // Fail (has 90 - required 45)

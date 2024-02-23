@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:53:10 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 19:46:15 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:06:06 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
-	if (&executor == nullptr)
+	if (!getSigned())
+		std::cout << "The form has not been signed yet" << std::endl;
+	else
 	{
-		std::cerr << "Error: Null pointer received." << std::endl;
-        return;
+		try
+		{
+			if (executor.getGrade() > getExecGrade())
+				throw AForm::GradeTooLowException();
+			std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.";
+			std::cout << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
-	try
-	{
-		if (executor.getGrade() > getExecGrade())
-			throw AForm::GradeTooLowException();
-		std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox.";
-		std::cout << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}	
 }
