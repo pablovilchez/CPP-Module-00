@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:51:23 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/23 18:11:00 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:40:40 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 	AForm *formul;
 	
 	std::cout << std::endl;
-	formul = randomIntern.MakeForm("robotomy request", "Manolito");
+	formul = randomIntern.MakeForm("robotomy frerequest", "Manolito");
 	bur_a.signForm(*formul);
 	std::cout << "Execute Robotomy tests:" << std::endl;
 	formul->execute(bur_c);  // Fail (has 90 - required 45)
