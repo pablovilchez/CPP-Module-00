@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:13:30 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 16:38:25 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:08:50 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AForm
 		AForm(std::string name, std::string _target, int signGrade, int execGrade);
 		AForm(const AForm &other);
 
-		~AForm();
+		virtual ~AForm();
 
 		AForm &operator=(const AForm &other);
 

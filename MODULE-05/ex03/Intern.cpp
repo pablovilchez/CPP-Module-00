@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 18:37:42 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/22 19:24:37 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:12:33 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ AForm * Intern::MakeForm(std::string formName, std::string target)
 	AForm *formPtr = nullptr;
 	int i = 0;
 	
-	while (i < 4 && formName != formList[i])
+	while (i < 3 && formName != formList[i])
 		i++;
 	switch (i)
 	{
