@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 20:43:09 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/26 11:00:41 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:50:34 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void ScalarConverter::convert(const std::string &input)
 		// printable char:
 		if (input.length() == 1 && isprint(input[0]) && !isdigit(input[0]))
 		{
-			std::cout << "char: " << input << std::endl;
+			std::cout << "char: " << "'" << input << "'" << std::endl;
 			std::cout << "int: " << static_cast<int>(input[0]) << std::endl;
 			std::cout << "float: " << static_cast<float>(input[0]) << ".0f" << std::endl;
 			std::cout << "double: " << static_cast<double>(input[0]) << ".0" << std::endl;
@@ -63,10 +63,12 @@ void ScalarConverter::convert(const std::string &input)
 			doubleCast = static_cast<double>(floatCast);
 			intCast = static_cast<int>(doubleCast);
 			if (intCast >= 32 && intCast <= 126)
+			{
 				charCast = static_cast<char>(intCast);
+				std::cout << "char: " << "'" << charCast << "'" << std::endl;
+			}
 			else
-				charCast = "Non displayable";
-			std::cout << "char: " << charCast << std::endl;
+				charCast = "char: Non displayable";
 			std::cout << "int: " << intCast << std::endl;
 			std::cout << "float: " << floatCast;
 			if (floatCast == intCast)
@@ -88,10 +90,12 @@ void ScalarConverter::convert(const std::string &input)
 				intCast = static_cast<int>(doubleCast);
 				floatCast = static_cast<float>(doubleCast);
 				if (intCast >= 32 && intCast <= 126)
+				{
 					charCast = static_cast<char>(intCast);
+					std::cout << "char: " << "'" << charCast << "'" << std::endl;
+				}
 				else
-					charCast = "Non displayable";
-				std::cout << "char: " << charCast << std::endl;
+					charCast = "char: Non displayable";
 				std::cout << "int: " << intCast << std::endl;
 				std::cout << "float: " << floatCast;
 				if (floatCast == intCast)
@@ -110,10 +114,12 @@ void ScalarConverter::convert(const std::string &input)
 		doubleCast = static_cast<double>(intCast);
 		floatCast = static_cast<float>(intCast);
 		if (intCast >= 32 && intCast <= 126)
+		{
 			charCast = static_cast<char>(intCast);
+			std::cout << "char: " << "'" << charCast << "'" << std::endl;
+		}
 		else
-			charCast = "Non displayable";
-		std::cout << "char: " << charCast << std::endl;
+			charCast = "char: Non displayable";
 		std::cout << "int: " << intCast << std::endl;
 		std::cout << "float: " << floatCast;
 		if (floatCast == intCast)
