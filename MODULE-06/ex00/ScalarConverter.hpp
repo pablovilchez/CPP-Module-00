@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 20:20:47 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/24 00:42:51 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:31:22 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <limits>
 
 class ScalarConverter
 {
