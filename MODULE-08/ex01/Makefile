@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = span
 
 CC = c++ -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -20,7 +20,7 @@ OBJ_PATH = obj
 
 HEADERS = -I ./
 
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp Span.cpp
 
 SRC := $(SRC_FILES)
 OBJ = $(SRC:%.cpp=$(OBJ_PATH)/%.o)

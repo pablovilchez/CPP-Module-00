@@ -2,8 +2,10 @@
 # | .gitignore for CPP-MODULES |
 #  ----------------------------
 
-# VSCode config folder
+# IDEs config folders and files
 /.vscode/
+/.idea/
+/.vs/
 
 # Extra files or Intra downloads
 **/Downloads
