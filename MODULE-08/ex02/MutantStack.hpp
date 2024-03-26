@@ -17,7 +17,7 @@ class MutantStack : public std::stack<T>
         {
             if (this == &other)
                 return (*this);
-            std::stack<T>::operator=(other);
+            this->std::stack<T>::operator=(other);
             return (*this);
         }
 

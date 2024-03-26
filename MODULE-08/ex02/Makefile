@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = mutantstack
 
 CC = c++ -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98
