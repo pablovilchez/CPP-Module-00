@@ -30,7 +30,7 @@ void BitcoinExchange::parseDataFile(const std::string &dataFile) {
 	while (std::getline(file, line)) {
 		std::istringstream ss(line);
 		std::string date;
-		double rate;
+		float rate;
 
 		if (lineNum == 0) {
 			lineNum++;
@@ -46,9 +46,9 @@ void BitcoinExchange::parseDataFile(const std::string &dataFile) {
 	}
 }
 
-double BitcoinExchange::getRate(const std::string &date) const {
-	double tempValue = -1;
-	std::map<std::string, double>::const_iterator it;
+float BitcoinExchange::getRate(const std::string &date) const {
+	float tempValue = -1;
+	std::map<std::string, float>::const_iterator it;
 	for (it = rates.begin(); it != rates.end(); it++) {
 		if (it->first <= date) {
 			tempValue = it->second;

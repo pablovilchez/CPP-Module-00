@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:33:35 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/02/27 14:21:26 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:11:54 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <iostream>
 # include <vector>
 # include <iterator>
+# include <algorithm>
 
 template<typename T>
 void easyfind(const T &cont, int num)
 {
-	typedef typename T::const_iterator iter;
 	int pos = 0;
 	
-	for (iter i = std::begin(cont); i != std::end(cont); i++)
+	for_each(cont.begin(), cont.end(), [&](int i))
 	{
 		if (*i == num)
 		{

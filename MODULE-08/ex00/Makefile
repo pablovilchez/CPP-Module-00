@@ -6,11 +6,11 @@
 #    By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/03 23:33:34 by pvilchez          #+#    #+#              #
-#    Updated: 2024/02/26 11:51:53 by pvilchez         ###   ########.fr        #
+#    Updated: 2024/03/27 10:55:30 by pvilchez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = easyfind
 
 CC = c++ -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror -std=c++98

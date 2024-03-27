@@ -11,9 +11,7 @@
 
 class Span {
     public:
-        Span();
         Span(unsigned int N);
-        Span(const Span &other);
 
         ~Span();
 
@@ -25,6 +23,9 @@ class Span {
         std::string longestSpan();
 
     private:
+        Span();
+        Span(const Span &other);
+        
         unsigned int _numElem;
         std::vector<int> _cont;
 };

@@ -18,10 +18,10 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		void parseDataFile(std::string const &dataFile);
-        double getRate(std::string const &date) const;
+        float getRate(std::string const &date) const;
 
     private:
-        std::map<std::string, double> rates;
+        std::map<std::string, float> rates;
 };
 
 

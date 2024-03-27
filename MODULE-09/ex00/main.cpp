@@ -28,6 +28,7 @@ bool checkDate(const std::string &date) {
 }
 
 int main(int argc, char **argv) {
+	int lineCount = 1;
 	if (argc != 2) {
 		std::cerr << "Usage: ./btc <filename>" << std::endl;
 		return 1;
@@ -43,24 +44,32 @@ int main(int argc, char **argv) {
 		std::istringstream ss(line);
 		std::string date;
 		std::string separator;
-		double quantity;
+		float quantity;
 		if (ss >> date && ss >> separator && ss >> quantity) {
 			if (!checkDate(date)) {
-				std::cerr << "Error: bad input => " << date << std::endl;
+				std::cerr << "Error: bad input => " << line;
+				std::cerr << " (line " << lineCount << ")" << std::endl;
+				lineCount++;
 				continue;
 			}
 			else if (quantity <= 0) {
-				std::cerr << "Error: not a positive number." << std::endl;
+				std::cerr << "Error: not a positive number (" << quantity;
+				std::cerr << " in line " << lineCount << ")" << std::endl;
+				lineCount++;
 				continue;
 			}
 			else if (quantity >= 1000) {
-				std::cerr << "Error: too large a number." << std::endl;
+				std::cerr << "Error: too large a number (";
+				std::cerr << "line " << lineCount << ")" << std::endl;
+				lineCount++;
 				continue;
 			}
 			else {
-				double result = exchange.getRate(date) * quantity;
+				float result = exchange.getRate(date) * quantity;
 				if (result < 0) {
-					std::cerr << "Error: No rate found for " << date << std::endl;
+					std::cerr << "Error: No rate found for " << date << " (line ";
+					std::cout << lineCount << ")" << std::endl;
+					lineCount++;
 				}
 				else {
 					std::cout << date << " => " << quantity << " = " << result << std::endl;
@@ -68,9 +77,12 @@ int main(int argc, char **argv) {
 			}
 		}
 		else {
-			if (line.find("date | value") == std::string::npos)
-				std::cerr << "Error: bad input => " << line << std::endl;
+			if (line.find("date | value") == std::string::npos) {
+				std::cerr << "Error: bad input => " << line;
+				std::cerr << " (line " << lineCount << ")" << std::endl;
+			}
 		}
+		lineCount++;
 	}
 	return 0;
 }
