@@ -21,18 +21,13 @@
 template<typename T>
 void easyfind(const T &cont, int num)
 {
-	int pos = 0;
-	
-	for_each(cont.begin(), cont.end(), [&](int i))
-	{
-		if (*i == num)
-		{
-			std::cout << "Found in position: " << pos << std::endl;
-			return;
-		}
-		pos++;
-	}
-	std::cout << "Value not found." << std::endl;
+	typename T::const_iterator it;
+
+	it = std::find(cont.begin(), cont.end(), num);
+	if (it != cont.end())
+		std::cout << "Found in position: " << std::distance(cont.begin(), it) << std::endl;
+	else
+		std::cout << "Value not found." << std::endl;
 }
 
 #endif
