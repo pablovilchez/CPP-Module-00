@@ -30,14 +30,14 @@ bool checkDate(const std::string &date) {
 int main(int argc, char **argv) {
 	int lineCount = 1;
 	if (argc != 2) {
-		std::cerr << "Usage: ./btc <filename>" << std::endl;
+		std::cout << "Usage: ./btc <filename>" << std::endl;
 		return 1;
 	}
 	BitcoinExchange exchange("data.csv");
 	std::string line;
 	std::ifstream inputFile(argv[1]);
 	if (!inputFile.is_open()) {
-		std::cerr << "Error: <" << argv[1] << "> file not found." << std::endl;
+		std::cout << "Error: <" << argv[1] << "> file not found." << std::endl;
 		return 1;
 	}
 	while (std::getline(inputFile, line)) {
@@ -47,29 +47,22 @@ int main(int argc, char **argv) {
 		float quantity;
 		if (ss >> date && ss >> separator && ss >> quantity) {
 			if (!checkDate(date)) {
-				std::cerr << "Error: bad input => " << line;
-				std::cerr << " (line " << lineCount << ")" << std::endl;
-				lineCount++;
-				continue;
+				std::cout << "Error: bad input => " << line;
+				std::cout << " (line " << lineCount << ")" << std::endl;
 			}
 			else if (quantity <= 0) {
-				std::cerr << "Error: not a positive number (" << quantity;
-				std::cerr << " in line " << lineCount << ")" << std::endl;
-				lineCount++;
-				continue;
+				std::cout << "Error: not a positive number (" << quantity;
+				std::cout << " in line " << lineCount << ")" << std::endl;
 			}
 			else if (quantity >= 1000) {
-				std::cerr << "Error: too large a number (";
-				std::cerr << "line " << lineCount << ")" << std::endl;
-				lineCount++;
-				continue;
+				std::cout << "Error: too large a number (";
+				std::cout << "line " << lineCount << ")" << std::endl;
 			}
 			else {
 				float result = exchange.getRate(date) * quantity;
 				if (result < 0) {
-					std::cerr << "Error: No rate found for " << date << " (line ";
+					std::cout << "Error: No rate found for " << date << " (line ";
 					std::cout << lineCount << ")" << std::endl;
-					lineCount++;
 				}
 				else {
 					std::cout << date << " => " << quantity << " = " << result << std::endl;
@@ -77,10 +70,8 @@ int main(int argc, char **argv) {
 			}
 		}
 		else {
-			if (line.find("date | value") == std::string::npos) {
-				std::cerr << "Error: bad input => " << line;
-				std::cerr << " (line " << lineCount << ")" << std::endl;
-			}
+			if (line.find("date | value") == std::string::npos)
+				std::cout << "Error: bad input (line " << lineCount << ")" << std::endl;
 		}
 		lineCount++;
 	}
