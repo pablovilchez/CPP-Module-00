@@ -3,6 +3,7 @@
 
 # include <stack>
 # include <deque>
+# include <iostream>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -29,6 +30,19 @@ class MutantStack : public std::stack<T>
         iterator end() {
             return (std::stack<T>::c.end());
         }
+
+		void printContainer() {
+			std::cout << "Container: ";
+			if (this->empty()) {
+				std::cout << "empty" << std::endl;
+				return;
+			}
+			else {
+				for (iterator it = this->begin(); it != this->end(); it++)
+					std::cout << *it << " ";
+			}
+			std::cout << std::endl;
+		}
 };
 
 #endif
