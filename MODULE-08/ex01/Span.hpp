@@ -8,6 +8,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 class Span {
     public:
@@ -18,7 +19,7 @@ class Span {
         Span &operator=(const Span &other);
 
         void addNumber(int num);
-        void addRange(int start, int end);
+        void addRange(std::vector<int>::iterator start, std::vector<int>::iterator end);
         std::string shortestSpan();
         std::string longestSpan();
 
