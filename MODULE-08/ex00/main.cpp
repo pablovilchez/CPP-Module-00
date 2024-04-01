@@ -6,7 +6,7 @@
 /*   By: pvilchez <pvilchez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:33:31 by pvilchez          #+#    #+#             */
-/*   Updated: 2024/03/27 10:54:49 by pvilchez         ###   ########.fr       */
+/*   Updated: 2024/04/01 09:47:35 by pvilchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int main()
 	other.push_back('d');
 	other.push_back('e');
 	easyfind(other, 'e');
+
+	std::vector<int> str;
+	easyfind(str, 5);
 	
 	return 0;
 }

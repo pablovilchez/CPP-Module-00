@@ -6,7 +6,11 @@ int main(int argc, char **argv) {
 		if (argc < 2) {
 			throw std::invalid_argument("Usage: ./PmergeMe [int1] [int2] [int3] ...");
 		}
+		//PmergeMe aux(argv);
+		//PmergeMe pmerge = aux;
+		
 		PmergeMe pmerge(argv);
+		
 		clock_t startV = clock();
 		pmerge.sortVector();
 		clock_t endV = clock();

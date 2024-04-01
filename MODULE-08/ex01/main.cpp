@@ -9,6 +9,10 @@ std::vector<int> generateRandomRange(int size) {
 	return range;
 }
 
+void printNumber(int number) {
+	std::cout << number << " ";
+}
+
 int main()
 {
     std::cout << "+++++ Test without errors +++++" << std::endl;
@@ -58,8 +62,7 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << "+++++ Generated range +++++" << std::endl;
-	for_each(range.begin(), range.end(), [](int &num) {
-		std::cout << num << " "; });
+	for_each(range.begin(), range.end(), printNumber);
 	std::cout << std::endl;
 
     return 0;

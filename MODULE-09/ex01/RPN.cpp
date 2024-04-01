@@ -60,6 +60,8 @@ void RPN::calculate() {
 				_result *= number;
 				break;
 			case '/':
+				if (number == 0)
+					throw std::invalid_argument("Division by 0");
 				_result /= number;
 				break;
 		}
