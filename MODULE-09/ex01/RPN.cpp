@@ -1,73 +1,52 @@
 #include "RPN.hpp"
 
-RPN::RPN() { }
-
 RPN::RPN(const char *expression) {
 	const char *init = expression;
 	const char *operators = "+-*/";
 	while (*init) {
 		if (!isdigit(*init) && !strchr(operators, *init) && *init != ' ')
-			throw std::invalid_argument("Invalid character in expression");
+			throw std::invalid_argument("Invalid character in expression.");
+		if (isdigit(*init) && isdigit(*(init + 1)))
+			throw std::invalid_argument("Numbers must be between 0 and 9.");
+		if (*init != ' ' && (*(init + 1) != ' ' && *(init + 1) != '\0'))
+			throw std::invalid_argument("Invalid format. Use spaces between numbers and operators.");
 		init++;
 	}
 	while (*expression) {
 		if (isdigit(*expression))
-			_numbers.push(*expression);
-		else if (strchr(operators, *expression))
-			_operators.push(*expression);
-		if (_operators.size() >= _numbers.size())
-			throw std::invalid_argument("Too many operators");
+			_numbers.push(*expression - '0');
+		else if (strchr(operators, *expression)) {
+			if (_numbers.size() < 2)
+				throw std::invalid_argument("Not enough numbers or invalid order.");
+			float numB = _numbers.top();
+			_numbers.pop();
+			float numA = _numbers.top();
+			_numbers.pop();
+			_numbers.push(calculate(numA, numB, *expression));
+		}
 		expression++;
 	}
-	if (_numbers.empty() || _operators.empty())
-		throw std::invalid_argument("Operators or numbers missing");
-	if (_numbers.size() != _operators.size() + 1)
-		throw std::invalid_argument("Invalid operators/numbers count");
-	calculate();
-}
-
-RPN::RPN(const RPN &other) {
-	*this = other;
-}
-
-RPN const &RPN::operator=(const RPN &rpn) {
-	_numbers = rpn._numbers;
-	_operators = rpn._operators;
-	_result = rpn._result;
-	return *this;
+	if (_numbers.empty() || _numbers.size() > 1)
+		throw std::invalid_argument("Invalid expression.");
+	_result = _numbers.top();
+	std::cout << _result << std::endl;
 }
 
 RPN::~RPN() { }
 
-void RPN::calculate() {
-	if (_numbers.empty() || _operators.empty())
-		throw std::invalid_argument("Nothing to calculate");
-	_result = _numbers.front() - '0';
-	_numbers.pop();
-	while (!_numbers.empty()) {
-		char operation = _operators.front();
-		_operators.pop();
-		double number = _numbers.front() - '0';
-		_numbers.pop();
-		switch (operation) {
-			case '+':
-				_result += number;
-				break;
-			case '-':
-				_result -= number;
-				break;
-			case '*':
-				_result *= number;
-				break;
-			case '/':
-				if (number == 0)
-					throw std::invalid_argument("Division by 0");
-				_result /= number;
-				break;
-		}
+float RPN::calculate(float numA, float numB, char operation) {
+	switch (operation) {
+		case '+':
+			return (numA + numB);
+		case '-':
+			return (numA - numB);
+		case '*':
+			return (numA * numB);
+		case '/':
+			if (numB == 0)
+				throw std::invalid_argument("Division by 0.");
+			return (numA / numB);
+		default:
+			throw std::invalid_argument("Invalid operator.");
 	}
-}
-
-double RPN::getResult() const {
-	return _result;
 }
