@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 
 bool checkDate(const std::string &date) {
 	if (date.length() != 10) {
@@ -44,6 +45,7 @@ int main(int argc, char **argv) {
 		std::istringstream ss(line);
 		std::string date;
 		std::string separator;
+		std::cout << std::fixed << std::setprecision(2);
 		float quantity;
 		if (ss >> date && ss >> separator && ss >> quantity) {
 			if (!checkDate(date)) {
