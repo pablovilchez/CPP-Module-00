@@ -1,30 +1,55 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() { }
-
 PmergeMe::PmergeMe(char **argv) {
 	int i = 1;
 	int num;
+	clock_t startV;
+	clock_t endV;
+	clock_t startL;
+	clock_t endL;
+
+	std::cout << "Before: " << std::endl;
 	while (argv[i]) {
 		num = atoi(argv[i]);
-		if (num <= 0)
+		if (num <= 0) {
+			std::cout << std::endl;
 			throw std::invalid_argument("Invalid argument. Only positive integers.");
-		_v.push_back(num);
-		_l.push_back(num);
+		}
+		std::cout << num << " ";
 		i++;
 	}
-	std::cout << "Before: ";
-	printVector(_v);
-}
+	std::cout << std::endl;
 
-PmergeMe::PmergeMe(const PmergeMe &other) {
-	*this = other;
-}
+	// Vector sort
+	i = 1;
+	startV = clock();
+	while (argv[i]) {
+		_v.push_back(atoi(argv[i]));
+		i++;
+	}
+	sortVector();
+	endV = clock();
 
-PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
-	_v = other._v;
-	_l = other._l;
-	return *this;
+	// List sort
+	i = 1;
+	startL = clock();
+	while (argv[i]) {
+		_l.push_back(atoi(argv[i]));
+		i++;
+	}
+	sortList();
+	endL = clock();
+
+	// Print sorted vector
+	std::cout << "After: " << std::endl;
+	printVector(_vSorted);
+
+	// Print time for sorting
+	std::cout << std::fixed << std::setprecision(6);
+	std::cout << "Vector insert + sort time for " << i - 1 << " elements : ";
+	std::cout << (double)(endV - startV) / CLOCKS_PER_SEC << "s" << std::endl;
+	std::cout << "List insert + sort time for " << i - 1 << " elements : ";
+	std::cout << (double)(endL - startL) / CLOCKS_PER_SEC << "s" << std::endl;
 }
 
 PmergeMe::~PmergeMe() { }
@@ -44,9 +69,7 @@ void PmergeMe::printList(std::list<int> list) {
 }
 
 void PmergeMe::sortVector() {
-	std::vector<int> vecRes = sortV(_v);
-	std::cout << "After: ";
-	printVector(vecRes);
+	_vSorted = sortV(_v);
 }
 
 std::vector<int> PmergeMe::sortV(std::vector<int> vec) {
@@ -95,7 +118,7 @@ std::vector<int> PmergeMe::mergeV(std::vector<int> vec1, std::vector<int> vec2) 
 }
 
 void PmergeMe::sortList() {
-	std::list<int> listRes = sortL(_l);
+	_lSorted = sortL(_l);
 }
 
 std::list<int> PmergeMe::sortL(std::list<int> list) {

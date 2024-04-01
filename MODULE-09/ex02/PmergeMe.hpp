@@ -4,17 +4,23 @@
 # include <iostream>
 # include <vector>
 # include <list>
-#
+# include <ctime>
+# include <iomanip>
 
 class PmergeMe {
 	public:
-		PmergeMe();
 		PmergeMe(char **argv);
-		PmergeMe(const PmergeMe &src);
-
-		PmergeMe &operator=(const PmergeMe &src);
-
 		~PmergeMe();
+
+	private:
+		std::vector<int> _v;
+		std::vector<int> _vSorted;
+		std::list<int> _l;
+		std::list<int> _lSorted;
+
+		PmergeMe();
+		PmergeMe(const PmergeMe &src);
+		PmergeMe &operator=(const PmergeMe &src);
 
 		void printVector(std::vector<int> vec);
 		void sortVector();
@@ -25,11 +31,6 @@ class PmergeMe {
 		void sortList();
 		std::list<int> sortL(std::list<int> list);
 		std::list<int> mergeL(std::list<int> list1, std::list<int> list2);
-
-	private:
-		std::vector<int> _v;
-		std::list<int> _l;
-
 };
 
 
